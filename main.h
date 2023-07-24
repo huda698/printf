@@ -42,13 +42,13 @@ typedef struct parameter
 } params_t;
 
 /**
- * struct specifier - struct token.
+ * struct specf - struct token.
  *
  * @specf: format token.
  * @f: function associated.
  */
 
-typedef struct specifier
+typedef struct specf
 {
 	char *specf;
 	int (*f)(va_list, params_t *);
@@ -71,7 +71,7 @@ int print_unsigned(va_list az, params_t *params);
 int print_address(va_list az, params_t *params);
 
 /* specifier.c */
-int (*get_specifier(char *s)) (va_list az, params_t *params);
+int (*get_specf(char *s)) (va_list az, params_t *params);
 int get_print(char *s, va_list az, params_t *params);
 int get_flag(char *s, params_t *params);
 int get_modifier(char *s, params_t *params);

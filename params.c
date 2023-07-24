@@ -17,7 +17,7 @@ void init_params(params_t *params, va_list az)
 	params->zero = 0;
 	params->minus = 0;
 	params->width = 0;
-	params->precision = UNIT_MAX;
+	params->precision = UINT_MAX;
 	params->h_modif = 0;
 	params->l_modif = 0;
 	(void)az;

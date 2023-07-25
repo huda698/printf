@@ -47,7 +47,7 @@ char *convert(long int num, int base, int flags, params_t *params)
  */
 int print_unsigned(va_list az, params_t *params)
 {
-	unsigned long 1;
+	unsigned long l;
 
 	if (params->l_modif)
 		l = (unsigned long)va_arg(az, unsigned long);
@@ -56,7 +56,7 @@ int print_unsigned(va_list az, params_t *params)
 	else
 		l = (unsigned int)va_arg(az, unsigned int);
 	params->unsign = 1;
-	return (print_number(convert(1, 10, CONVERT_UNSIGNED, params), params));
+	return (print_number(convert(l, 10, CONVERT_UNSIGNED, params), params));
 }
 
 /**

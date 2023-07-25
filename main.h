@@ -35,8 +35,8 @@ typedef struct parameter
 	unsigned int hashtag      : 1;
 	unsigned int zero         : 1;
 	unsigned int minus        : 1;
-	unsigned int width        : 1;
-	unsigned int precision    : 1;
+	unsigned int width;
+	unsigned int precision;
 	unsigned int h_modif      : 1;
 	unsigned int l_modif      : 1;
 } params_t;

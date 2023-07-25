@@ -12,7 +12,7 @@
 char *convert(long int num, int base, int flags, params_t *params)
 {
 	static char *array;
-	static char *buffer[50];
+	static char buffer[50];
 	char sign = 0;
 	char *ptr;
 	unsigned long n = num;
@@ -20,7 +20,7 @@ char *convert(long int num, int base, int flags, params_t *params)
 
 	if (!(flags & CONVERT_UNSIGNED) && num < 0)
 	{
-		n = num;
+		n = -num;
 		sign = '-';
 	}
 	array = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
@@ -40,35 +40,35 @@ char *convert(long int num, int base, int flags, params_t *params)
 
 /**
  * print_unsigned - prints unsigned integer numbers
- * @ap: argument pointer
+ * @az: argument pointer
  * @params: the paraneters sturct
  *
  * Return: bytes printed
  */
-int print_unsigned(va_list ap, params_t *params)
+int print_unsigned(va_list az, params_t *params)
 {
-	unsigned long 1;
+	unsigned long l;
 
-	if (params->l_modifier)
-		l = (unsigned long)va_arg(ap, unsigned long);
-	else if (params->h_modifier)
-		l = (unsigned short int)va_arg(ap, unsigned int);
+	if (params->l_modif)
+		l = (unsigned long)va_arg(az, unsigned long);
+	else if (params->h_modif)
+		l = (unsigned short int)va_arg(az, unsigned int);
 	else
-		l = (unsigned int)va_arg(ap, unsigned int);
+		l = (unsigned int)va_arg(az, unsigned int);
 	params->unsign = 1;
 	return (print_number(convert(1, 10, CONVERT_UNSIGNED, params), params));
 }
 
 /**
  * print_address - prints address
- * @ap: argument pointer
+ * @az: argument pointer
  * @params: the parameters sturct
  *
  * Return: bytes printed
  */
-int print_address(va_list ap, params_t *params)
+int print_address(va_list az, params_t *params)
 {
-	unsigned long int n = va_arg(ap, unsigned long int);
+	unsigned long int n = va_arg(az, unsigned long int);
 	char *str;
 
 	if (!n)

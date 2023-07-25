@@ -16,7 +16,7 @@ int print_char(va_list az, params_t *params)
 		sum += _putchar(ch);
 	while (pad++ < params->width)
 		sum += _putchar(pad_char);
-	if (!params->miuns)
+	if (!params->minus)
 		sum += _putchar(ch);
 	return (sum);
 }
@@ -40,7 +40,7 @@ int print_int(va_list az, params_t *params)
 		l = (short int)va_arg(az, int);
 	else
 		l = (int)va_arg(az, int);
-	return (print_numbers(convert(l, 10, 0, params), params));
+	return (print_number(convert(l, 10, 0, params), params));
 }
 
 /**
@@ -67,7 +67,7 @@ int print_string(va_list az, params_t *params)
 		if (params->minus)
 		{
 			if (params->precision != UINT_MAX)
-				for (i = 0, i < pad; i++)
+				for (i = 0; i < pad; i++)
 					sum += _putchar(*str++);
 			else
 				sum += _puts(str);

@@ -23,7 +23,7 @@ int print_hex(va_list az, params_t *params)
 	if (params->hashtag && l)
 	{
 		*--str = 'x';
-		*-str = '0';
+		*--str = '0';
 	}
 	params->unsign = 1;
 	return (c += print_number(str, params));

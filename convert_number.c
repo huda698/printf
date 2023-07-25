@@ -9,7 +9,7 @@
  */
 int print_hex(va_list az, params_t *params)
 {
-	unsigned long 1;
+	unsigned long l;
 	int c = 0;
 	char *str;
 
@@ -101,6 +101,6 @@ int print_octal(va_list az, params_t *params)
 	if (params->hashtag && l)
 		*--str = '0';
 	params->unsign = 1;
-	return (c += print_numbers(str, params));
+	return (c += print_number(str, params));
 }
 

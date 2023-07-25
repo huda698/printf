@@ -12,11 +12,11 @@ int print_char(va_list az, params_t *params)
 	char pad_char = ' ';
 	unsigned int pad = 1, sum = 0, ch = va_arg(az, int);
 
-	if (params->minus_flag)
+	if (params->minus)
 		sum += _putchar(ch);
 	while (pad++ < params->width)
 		sum += _putchar(pad_char);
-	if (!params->miuns_flag)
+	if (!params->miuns)
 		sum += _putchar(ch);
 	return (sum);
 }
@@ -34,9 +34,9 @@ int print_int(va_list az, params_t *params)
 {
 	long l;
 
-	if (params->l_modifier)
+	if (params->l_modif)
 		l = va_arg(az, long);
-	else if (params->h_modifier)
+	else if (params->h_modif)
 		l = (short int)va_arg(az, int);
 	else
 		l = (int)va_arg(az, int);
@@ -64,7 +64,7 @@ int print_string(va_list az, params_t *params)
 		if (params->precision < pad)
 			j = pad = params->precision;
 
-		if (params->minus_flag)
+		if (params->minus)
 		{
 			if (params->precision != UINT_MAX)
 				for (i = 0, i < pad; i++)
@@ -74,7 +74,7 @@ int print_string(va_list az, params_t *params)
 		}
 		while (j++ < params->width)
 			sum += _putchar(pad_char);
-		if (!params->minus_flag)
+		if (!params->minus)
 		{
 			if (params->precision != UINT_MAX)
 				for (i = 0; i < pad; i++)

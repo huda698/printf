@@ -52,22 +52,22 @@ int print_number(char *str, params_t *params)
 		*--str = '-';
 	if (!params->minus_flag)
 	{
-		return (right_shift(str, params));
+		return (print_number_right_shift(str, params));
 	}
 	else
 	{
-		return (left_shift(str, params));
+		return (print_number_left_shift(str, params));
 	}
 }
 
 /**
- * right_shift - print right shift numbers.
+ * print_number_right_shift - print right shift numbers.
  * @str: string.
  * @params: parameter string.
  * Return: number printed.
  */
 
-int right_shift(char *str, params_t *params)
+int print_number_right_shift(char *str, params_t *params)
 {
 	unsigned int i = _strlen(str), ng, ng1, n = 0;
 	char pad = ' ';
@@ -103,13 +103,13 @@ int right_shift(char *str, params_t *params)
 }
 
 /**
- * left_shift - print left shift numbers.
+ * print_number_left_shift - print left shift numbers.
  * @str: string.
  * @params: parameter struct.
  * Return: number printed.
  */
 
-int left_shift(char *str, params_t *params)
+int print_number_left_shift(char *str, params_t *params)
 {
 	unsigned int i = _strlen(str), ng, ng1, n = 0;
 	char pad = ' ';

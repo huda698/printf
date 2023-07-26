@@ -95,8 +95,8 @@ int print_rot13(va_list az, params_t *params);
 int _isdigit(int c);
 int _strlen(char *s);
 int print_number(char *str, params_t *params);
-int right_shift(char *str, params_t *params);
-int left_shift(char *str, params_t *params);
+int print_number_right_shift(char *str, params_t *params);
+int print_number_left_shift(char *str, params_t *params);
 
 /* params.c */
 void init_params(params_t *params, va_list az);

@@ -16,11 +16,11 @@
  * struct parameter - parameters struct.
  *
  * @unsign: flag if unsigned value.
- * @plus: plus_flag specified.
- * @space: space_flag specified.
- * @hashtag: hash_flag specified.
- * @zero: zero_flag specified.
- * @minus: minus_flag specified.
+ * @plus_flag: plus_flag specified.
+ * @space_flag: space_flag specified.
+ * @hashtag_flag: hash_flag specified.
+ * @zero_flag: zero_flag specified.
+ * @minus_flag: minus_flag specified.
  * @width: width specified.
  * @precision: precision specified.
  * @h_modif: h_modifier specified.
@@ -30,13 +30,16 @@
 typedef struct parameter
 {
 	unsigned int unsign       : 1;
-	unsigned int plus         : 1;
-	unsigned int space        : 1;
-	unsigned int hashtag      : 1;
-	unsigned int zero         : 1;
-	unsigned int minus        : 1;
+
+	unsigned int plus_flag    : 1;
+	unsigned int space_flag   : 1;
+	unsigned int hashtag_flag : 1;
+	unsigned int zero_flag    : 1;
+	unsigned int minus_flag   : 1;
+
 	unsigned int width;
 	unsigned int precision;
+
 	unsigned int h_modif      : 1;
 	unsigned int l_modif      : 1;
 } params_t;

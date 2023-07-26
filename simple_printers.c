@@ -24,7 +24,7 @@ int print_from_to(char *start, char *stop, char *except)
 
 /**
  * print_rev - prints string in reverse
- * @az: string 
+ * @az: string
  * @params: the parameters struct
  *
  * Return: number bytes printed

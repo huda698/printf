@@ -20,7 +20,7 @@ int print_hex(va_list az, params_t *params)
 	else
 		l = (unsigned int)va_arg(az, unsigned int);
 	str = convert(l, 16, CONVERT_UNSIGNED | CONVERT_LOWERCASE, params);
-	if (params->hashtag && l)
+	if (params->hashtag_flag && l)
 	{
 		*--str = 'x';
 		*--str = '0';
@@ -49,7 +49,7 @@ int print_HEX(va_list az, params_t *params)
 	else
 		l = (unsigned int)va_arg(az, unsigned int);
 	str = convert(l, 16, CONVERT_UNSIGNED, params);
-	if (params->hashtag && l)
+	if (params->hashtag_flag && l)
 	{
 		*--str = 'X';
 		*--str = '0';
@@ -71,7 +71,7 @@ int print_binary(va_list az, params_t *params)
 	char *str = convert(n, 2, CONVERT_UNSIGNED, params);
 	int c = 0;
 
-	if (params->hashtag && n)
+	if (params->hashtag_flag && n)
 		*--str = '0';
 	params->unsign = 1;
 	return (c += print_number(str, params));
@@ -98,7 +98,7 @@ int print_octal(va_list az, params_t *params)
 		l = (unsigned int)va_arg(az, unsigned int);
 	str = convert(l, 8, CONVERT_UNSIGNED, params);
 
-	if (params->hashtag && l)
+	if (params->hashtag_flag && l)
 		*--str = '0';
 	params->unsign = 1;
 	return (c += print_number(str, params));

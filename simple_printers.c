@@ -58,7 +58,7 @@ int print_rot13(va_list az, params_t *params)
 	int i, index;
 	int count = 0;
 	char arr[] =
-		"NOPQRSTUVWXYZABCDEFGHIJKLM      NOPqrstuvwxyzabcdefghijklm";
+		"NOPQRSTUVWXYZABCDEFGHIJKLM      nopqrstuvwxyzabcdefghijklm";
 		char *a = va_arg(az, char *);
 	(void)params;
 
@@ -66,7 +66,7 @@ int print_rot13(va_list az, params_t *params)
 	index = 0;
 	while (a[i])
 	{
-		if ((a[i] >= 'A' && a[i] <= 'z')
+		if ((a[i] >= 'A' && a[i] <= 'Z')
 				|| (a[i] >= 'a' && a[i] <= 'z'))
 		{
 			index = a[i] - 65;

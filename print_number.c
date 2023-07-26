@@ -50,7 +50,7 @@ int print_number(char *str, params_t *params)
 			*--str = '0';
 	if (ng)
 		*--str = '-';
-	if (!params->minus)
+	if (!params->minus_flag)
 	{
 		return (right_shift(str, params));
 	}
@@ -72,30 +72,31 @@ int right_shift(char *str, params_t *params)
 	unsigned int i = _strlen(str), ng, ng1, n = 0;
 	char pad = ' ';
 
-	if (params->zero && !params->minus)
+	if (params->zero_flag && !params->minus_flag)
 		pad = '0';
 	ng = ng1 = (!params->unsign && *str == '-');
-	if (ng && i < params->width && pad == '0' && !params->minus)
+	if (ng && i < params->width && pad == '0' && !params->minus_flag)
 		str++;
 	else
 		ng = 0;
-	if ((params->plus && !ng1) || (!params->plus && params->space && !ng1))
+	if ((params->plus_flag && !ng1) ||
+			(!params->plus_flag && params->space_flag && !ng1))
 		i++;
 	if (ng && pad == '0')
 		n += _putchar('-');
-	if (params->plus && !ng1 && pad == '0' && !params->unsign)
+	if (params->plus_flag && !ng1 && pad == '0' && !params->unsign)
 		n += _putchar('+');
-	else if (!params->plus && params->space && !ng1 &&
-			!params->unsign && params->zero)
+	else if (!params->plus_flag && params->space_flag && !ng1 &&
+			!params->unsign && params->zero_flag)
 		n += _putchar(' ');
 	while (i++ < params->width)
 		n += _putchar(pad);
 	if (ng && pad == ' ')
 		n += _putchar('-');
-	if (params->plus && !ng1 && pad == ' ' && !params->unsign)
+	if (params->plus_flag && !ng1 && pad == ' ' && !params->unsign)
 		n += _putchar('+');
-	else if (!params->plus && params->space && !ng1 &&
-			!params->unsign && !params->zero)
+	else if (!params->plus_flag && params->space_flag && !ng1 &&
+			!params->unsign && !params->zero_flag)
 		n += _putchar(' ');
 	n += _puts(str);
 	return (n);
@@ -113,16 +114,16 @@ int left_shift(char *str, params_t *params)
 	unsigned int i = _strlen(str), ng, ng1, n = 0;
 	char pad = ' ';
 
-	if (params->zero && !params->minus)
+	if (params->zero_flag && !params->minus_flag)
 		pad = '0';
 	ng = ng1 = (!params->unsign && *str == '-');
-	if (ng && i < params->width && pad == '0' && !params->minus)
+	if (ng && i < params->width && pad == '0' && !params->minus_flag)
 		str++;
 	else
 		ng = 0;
-	if (params->plus && !ng1 && !params->unsign)
+	if (params->plus_flag && !ng1 && !params->unsign)
 		n += _putchar('+'), i++;
-	else if (params->space && !ng1 && !params->unsign)
+	else if (params->space_flag && !ng1 && !params->unsign)
 		n += _putchar(' '), i++;
 	n += _puts(str);
 	while (i++ < params->width)

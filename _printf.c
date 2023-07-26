@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
 		p = get_precision(p, &params, az);
 		if (get_modifier(p, &params))
 			p++;
-		if (!get_specf(p))
+		if (!get_specifier(p))
 			net += print_from_to(start, p,
 					params.l_modif || params.h_modif ? p - 1 : 0);
 		else

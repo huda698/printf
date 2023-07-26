@@ -42,17 +42,17 @@ typedef struct parameter
 } params_t;
 
 /**
- * struct specf - struct token.
+ * struct specifier - struct token.
  *
- * @specf: format token.
+ * @specifier: format token.
  * @f: function associated.
  */
 
-typedef struct specf
+typedef struct specifier
 {
-	char *specf;
+	char *specifier;
 	int (*f)(va_list, params_t *);
-} specf_t;
+} specifier_t;
 
 /* _put.c */
 int _puts(char *str);
@@ -71,7 +71,7 @@ int print_unsigned(va_list az, params_t *params);
 int print_address(va_list az, params_t *params);
 
 /* specifier.c */
-int (*get_specf(char *s)) (va_list az, params_t *params);
+int (*get_specifier(char *s)) (va_list az, params_t *params);
 int get_print(char *s, va_list az, params_t *params);
 int get_flag(char *s, params_t *params);
 int get_modifier(char *s, params_t *params);
@@ -79,7 +79,7 @@ char *get_width(char *s, params_t *params, va_list az);
 
 /* convert_number.c */
 int print_hex(va_list az, params_t *params);
-int print_Hex(va_list az, params_t *params);
+int print_HEX(va_list az, params_t *params);
 int print_binary(va_list az, params_t *params);
 int print_octal(va_list az, params_t *params);
 

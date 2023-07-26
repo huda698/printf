@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
- * get_specf - find format function.
+ * get_specifier - find format function.
  * @s: string.
  * Return: number of bytes.
  */
 
-int (*get_specf(char *s)) (va_list az, params_t *params)
+int (*get_specifier(char *s)) (va_list az, params_t *params)
 {
-	specf_t specf[] = {
+	specifier_t specifier[] = {
 		{"c", print_char},
 		{"d", print_int},
 		{"i", print_int},
@@ -19,7 +19,7 @@ int (*get_specf(char *s)) (va_list az, params_t *params)
 		{"b", print_binary},
 		{"o", print_octal},
 		{"x", print_hex},
-		{"X", print_Hex},
+		{"X", print_HEX},
 		{"S", print_S},
 		{"r", print_rev},
 		{"R", print_rot13},
@@ -27,11 +27,11 @@ int (*get_specf(char *s)) (va_list az, params_t *params)
 	};
 	int i = 0;
 
-	while (specf[i].specf)
+	while (specifier[i].specifier)
 	{
-		if (*s == specf[i].specf[0])
+		if (*s == specifier[i].specifier[0])
 		{
-			return (specf[i].f);
+			return (specifier[i].f);
 		}
 		i++;
 	}
@@ -48,7 +48,7 @@ int (*get_specf(char *s)) (va_list az, params_t *params)
 
 int get_print(char *s, va_list az, params_t *params)
 {
-	int (*f)(va_list, params_t *) = get_specf(s);
+	int (*f)(va_list, params_t *) = get_specifier(s);
 
 	if (f)
 		return (f(az, params));
